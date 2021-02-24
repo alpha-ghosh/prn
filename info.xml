@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<extension key="org.prn.civirules" type="module">
+  <file>prncivirules</file>
+  <name>PRN Civirules</name>
+  <description>Civirule extensions for PRN</description>
+  <license/>
+  <maintainer>
+    <author/>
+    <email/>
+  </maintainer>
+  <urls>
+    <url desc="Main Extension Page"/>
+    <url desc="Documentation"/>
+    <url desc="Support"/>
+    <url desc="Licensing"/>
+  </urls>
+  <releaseDate/>
+  <version>1.1</version>
+  <develStage>alpha</develStage>
+  <compatibility>
+    <ver>5.6.1</ver>
+  </compatibility>
+  <requires>
+    <ext>org.civicoop.civirules</ext>
+  </requires>
+  <comments/>
+  <civix>
+    <namespace>CRM/PRNCivirules</namespace>
+  </civix>
+</extension>
