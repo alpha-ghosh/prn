@@ -37,9 +37,9 @@ class CRM_PRNCivirules_Upgrader extends CRM_PRNCivirules_Upgrader_Base {
   /**
    * Example: Run an external SQL script when the module is uninstalled.
    */
-  // public function uninstall() {
-  //  $this->executeSqlFile('sql/myuninstall.sql');
-  // }
+  public function uninstall() {
+   $this->executeSqlFile('sql/myuninstall.sql');
+  }
 
   /**
    * Example: Run a simple query when a module is enabled.

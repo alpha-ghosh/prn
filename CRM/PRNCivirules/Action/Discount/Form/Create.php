@@ -1,5 +1,5 @@
 <?php
-use CRM_Civirules_ExtensionUtil as E;
+use CRM_PRNCivirules_ExtensionUtil as E;
 /**
  * Form controller class
  *

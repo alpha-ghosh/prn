@@ -7,4 +7,11 @@
     <access_arguments>access CiviCRM</access_arguments>
     <access_arguments>administer CiviCRM</access_arguments>
   </item>
+  <item>
+    <path>civicrm/prn/civirule/form/action/contact/create</path>
+    <page_callback>CRM_PRNCivirules_Action_Contact_Form_Create</page_callback>
+    <title>Create Contact</title>
+    <access_arguments>access CiviCRM</access_arguments>
+    <access_arguments>administer CiviCRM</access_arguments>
+  </item>
 </menu>

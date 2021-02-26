@@ -1,6 +1,6 @@
 <h3>{$ruleActionHeader}</h3>
 <div
-	class="crm-block crm-form-block crm-civirule-rule_action-block-contact_job_title">
+	class="crm-block crm-form-block">
 	<div class="crm-section">
 		<table class="form-layout-compressed">
 			<tr class="crm-discount-item-form-block-description">

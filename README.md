@@ -1,15 +1,20 @@
 # org.prn.civirules
 
-![Screenshot](/images/screenshot.png)
 
-(*FIXME: In one or two paragraphs, describe what the extension does and why one would download it. *)
+This extension addds the following Actions for CiviRules.  
+
+* Create Discount Code - creates a randomized discount code.  
+* Create a Contact - creates a contact from custom fields.
+
+See org.civicoop.civirules (https://docs.civicrm.org/civirules/en/latest/) for details on CiviRules
+See org.civicrm.module.cividiscount (https://docs.civicrm.org) for details on CiviDiscount
 
 The extension is licensed under [AGPL-3.0](LICENSE.txt).
 
 ## Requirements
 
 * PHP v7.2+
-* CiviCRM (*FIXME: Version number*)
+* CiviCRM 5.33.2+
 
 ## Installation (Web UI)
 
@@ -37,9 +42,8 @@ cv en prncivirules
 
 ## Getting Started
 
-(* FIXME: Where would a new user navigate to get started? What changes would they see? *)
+Create new actions using Administer | CiviRules | Manage Rules
 
 ## Known Issues
 
-(* FIXME *)
 # prn_org
