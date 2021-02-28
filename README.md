@@ -4,7 +4,7 @@
 This extension addds the following Actions for CiviRules.  
 
 * Create Discount Code - creates a randomized discount code.  
-* Create a Contact - creates a contact from custom fields.
+* Create a Contact - creates (with dupe-check) a contact from custom fields and sets it in trigger context.
 
 See org.civicoop.civirules (https://docs.civicrm.org/civirules/en/latest/) for details on CiviRules
 See org.civicrm.module.cividiscount (https://docs.civicrm.org) for details on CiviDiscount
