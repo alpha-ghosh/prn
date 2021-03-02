@@ -68,8 +68,12 @@ class CRM_PRNCivirules_Action_Discount_Create extends CRM_Civirules_Action {
 		$entity = 'DiscountCode';
 		$params = $this->getActionParameters ();
 		$params = $this->alterApiParameters ( $params, $triggerData );
-		$discount = civicrm_api3 ( $entity, 'create', $params );
-		$triggerData->setEntityData('discount', $discount);
+		$result = civicrm_api3 ( $entity, 'create', $params );
+		if($result['is_error'] == 0 && !empty($params['save_as'])){
+			$contact = array('id' => $triggerData->getContactId(), 
+					$params['save_as'] => array_column($result['values'], 'code')[0]);
+			civicrm_api3 ('Contact', 'update', $contact );
+		}
 	}
 
 	/**

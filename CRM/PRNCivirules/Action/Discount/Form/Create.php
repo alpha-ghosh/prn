@@ -7,7 +7,8 @@ use CRM_PRNCivirules_ExtensionUtil as E;
  */
 class CRM_PRNCivirules_Action_Discount_Form_Create  extends CRM_CivirulesActions_Form_Form {
     
-    protected $fields = ['description', 'is_actiive', 'amount', 'amount_type', 'count_max', 'active_on', 'expire_on', 'memberships'];
+    protected $fields = ['description', 'is_actiive', 'amount', 'amount_type', 'count_max', 
+    		'active_on', 'expire_on', 'memberships', 'save_as'];
     
     public function preProcess(){
         parent::preProcess();
@@ -45,6 +46,15 @@ class CRM_PRNCivirules_Action_Discount_Form_Create  extends CRM_CivirulesActions
                 FALSE,
                 ["multiple" => TRUE]
                 );
+        }
+        $customFields = CRM_Core_BAO_CustomField::getFields(['Individual', 'Address']);
+        $customFields = array_column($customFields, 'label', 'name');
+        if (!empty($customFields)) {
+        	array_unshift($customFields, 'None');
+        	$this->add('select',
+        			'save_as',
+        			E::ts('Save code as'),
+        			$customFields);
         }
         
         $this->addButtons(array(
