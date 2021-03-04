@@ -8,16 +8,6 @@
  */
 use Civi\Token\TokenProcessor;
 class CRM_PRNCivirules_Action_Discount_Create extends CRM_Civirules_Action {
-
-	/**
-	 * Method to set the api action
-	 *
-	 * @return string
-	 * @access protected
-	 */
-	protected function getApiAction() {
-		return 'Create';
-	}
 	protected function generateDiscountCode() {
 		$tries = 0;
 		do {
@@ -69,10 +59,12 @@ class CRM_PRNCivirules_Action_Discount_Create extends CRM_Civirules_Action {
 		$params = $this->getActionParameters ();
 		$params = $this->alterApiParameters ( $params, $triggerData );
 		$result = civicrm_api3 ( $entity, 'create', $params );
-		if($result['is_error'] == 0 && !empty($params['save_as'])){
-			$contact = array('id' => $triggerData->getContactId(), 
-					$params['save_as'] => array_column($result['values'], 'code')[0]);
-			civicrm_api3 ('Contact', 'update', $contact );
+		if ($result ['is_error'] == 0 && ! empty ( $contactId ) && ! empty ( $params ['save_as'] )) {
+			$contact = array (
+					'id' => $triggerData->getContactId (),
+					$params ['save_as'] => array_column ( $result ['values'], 'code' ) [0]
+			);
+			civicrm_api3 ( 'Contact', 'update', $contact );
 		}
 	}
 

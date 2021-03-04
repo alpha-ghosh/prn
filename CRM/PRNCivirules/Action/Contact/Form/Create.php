@@ -9,18 +9,15 @@ use CRM_PRNCivirules_ExtensionUtil as E;
 class CRM_PRNCivirules_Action_Contact_Form_Create extends CRM_CivirulesActions_Form_Form
 {
 
-    private static $field_prefix = 'custom_';
-    private static $fields;
+	private $customFields;
+    private $fields;
 
     public function preProcess()
     {
         parent::preProcess();
-        self::$fields = [
-            'none' => E::ts('None'),
-            'first_name' => E::ts('First Name'),
-            'last_name' => E::ts('Last Name'),
-            'email' => E::ts('Email')
-        ];
+        $this->fields = CRM_Contact_BAO_Contact::importableFields();
+        $this->customFields = CRM_Core_BAO_CustomField::getFields();
+        
     }
 
     /**
@@ -31,8 +28,9 @@ class CRM_PRNCivirules_Action_Contact_Form_Create extends CRM_CivirulesActions_F
     public function buildQuickForm()
     {
         $this->add('hidden', 'rule_action_id');
-        for ($i = 1; $i <= 3; $i ++) {
-            $this->add('select',  self::$field_prefix . $i, E::ts('Custom field ' . $i), self::$fields);
+        $this->assign('customFields', array_column($this->customFields, 'label', 'name'));
+        foreach($this->customFields as $customField){
+       		$this->add('select', $customField['name'], '',  array_column($this->fields, 'title', 'name'));
         }
         $this->addButtons(array(
             array(
@@ -57,8 +55,8 @@ class CRM_PRNCivirules_Action_Contact_Form_Create extends CRM_CivirulesActions_F
     {
         $defaultValues = parent::setDefaultValues();
         $data = unserialize($this->ruleAction->action_params);
-        for ($i = 1; $i <= 3; $i ++) {
-            $key = self::$field_prefix . $i;
+        foreach($this->customFields as $customField){
+        	$key = $customField['name'];
             if (isset($data[$key]))
                 $defaultValues[$key] = $data[$key];
         }
@@ -72,8 +70,8 @@ class CRM_PRNCivirules_Action_Contact_Form_Create extends CRM_CivirulesActions_F
      */
     public function postProcess()
     {
-        for ($i = 1; $i <= 3; $i ++) {
-            $key = self::$field_prefix . $i;
+    	foreach($this->customFields as $customField){
+    		$key = $customField['name'];
             $data[$key] = $this->_submitValues[$key];
         }
         $this->ruleAction->action_params = serialize($data);

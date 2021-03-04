@@ -4,17 +4,17 @@
 	<div class="crm-section">
 		<table class="form-layout-compressed">
 			<tr>
-				<td class="label">{$form.custom_1.label}</td>
-				<td>{$form.custom_1.html}</td>
+				<th>Custom Field</th>
+				<th></th>
+				<th>Civicrm Field</th>
 			</tr>
+			{foreach from=$customFields key=name item=desc}
 			<tr>
-				<td class="label">{$form.custom_2.label}</td>
-				<td>{$form.custom_2.html}</td>
+				<td class=>{$desc}</td>
+				<td>[{$name}]</td>
+				<td>{$form.$name.html}</td>
 			</tr>
-			<tr>
-				<td class="label">{$form.custom_3.label}</td>
-				<td>{$form.custom_3.html}</td>
-			</tr>
+			{/foreach}
 		</table>
 	</div>
 </div>
