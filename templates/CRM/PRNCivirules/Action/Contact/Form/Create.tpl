@@ -1,6 +1,5 @@
 <h3>{$ruleActionHeader}</h3>
-<div
-	class="crm-block crm-form-block">
+<div class="crm-block crm-form-block">
 	<div class="crm-section">
 		<table class="form-layout-compressed">
 			<tr>
@@ -10,7 +9,7 @@
 			</tr>
 			{foreach from=$customFields key=name item=desc}
 			<tr>
-				<td class=>{$desc}</td>
+				<td>{$desc}</td>
 				<td>[{$name}]</td>
 				<td>{$form.$name.html}</td>
 			</tr>

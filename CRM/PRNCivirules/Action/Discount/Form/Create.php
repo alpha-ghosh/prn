@@ -7,7 +7,7 @@ use CRM_PRNCivirules_ExtensionUtil as E;
  */
 class CRM_PRNCivirules_Action_Discount_Form_Create  extends CRM_CivirulesActions_Form_Form {
     
-    protected $fields = ['description', 'is_actiive', 'amount', 'amount_type', 'count_max', 
+    protected $fields = ['description', 'is_active', 'amount', 'amount_type', 'count_max', 
     		'active_on', 'expire_on', 'memberships', 'save_as'];
     
     public function preProcess(){
