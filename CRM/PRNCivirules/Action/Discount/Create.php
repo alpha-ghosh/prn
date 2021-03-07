@@ -33,8 +33,7 @@ class CRM_PRNCivirules_Action_Discount_Create extends CRM_Civirules_Action {
 	 * @access protected
 	 */
 	protected function alterApiParameters($params, CRM_Civirules_TriggerData_TriggerData $triggerData) {
-		$code = $this->generateDiscountCode ();
-		$params ['code'] = $code;
+		$params ['code'] = $this->generateDiscountCode ();
 		$description = trim ( $params ['description'] );
 		$contactId = $triggerData->getContactId ();
 		if (! empty ( $contactId ) && ! empty ( $description ) && strpos ( $description, '{' ) !== FALSE) {
@@ -90,10 +89,7 @@ class CRM_PRNCivirules_Action_Discount_Create extends CRM_Civirules_Action {
 	public static function createTokenProcessor() {
 		return new TokenProcessor ( \Civi::dispatcher (), [ 
 				'controller' => get_class (),
-				'smarty' => FALSE,
-				'schema' => [ 
-						'activityId'
-				]
+				'smarty' => FALSE
 		] );
 	}
 }
