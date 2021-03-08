@@ -22,6 +22,7 @@
   </compatibility>
   <requires>
     <ext>org.civicoop.civirules</ext>
+    <ext>org.civicrm.module.cividiscount</ext>
   </requires>
   <comments/>
   <civix>
